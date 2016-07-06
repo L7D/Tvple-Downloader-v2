@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8E0ABA23-A84E-458F-84C5-C97C680D9368}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TvpleDownloader_v2</RootNamespace>
+    <AssemblyName>Tvple Downloader</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>APP_ICON.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Json">
+      <HintPath>..\..\라이브러리\json-for-dotnet-1.2\System.Net.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Convert.cs" />
+    <Compile Include="UI\CustomForm.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Info.Designer.cs">
+      <DependentUpon>Info.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TvpleWeb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\TvpleWeb.Designer.cs">
+      <DependentUpon>TvpleWeb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tvple.cs" />
+    <Compile Include="UI\Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Update.Designer.cs">
+      <DependentUpon>Update.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\Info.resx">
+      <DependentUpon>Info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\TvpleWeb.resx">
+      <DependentUpon>TvpleWeb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UI\Update.resx">
+      <DependentUpon>Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MINIMIZE_BUTTON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CLOSE_BUTTON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="APP_ICON.ico" />
+    <Content Include="APP_ICON_50x50.ico" />
+    <None Include="Resources\UPDATE_APP_ICON.png" />
+    <None Include="Resources\NEXT_BUTTON_NONE.png" />
+    <None Include="Resources\PREVIOUS_BUTTON_NONE.png" />
+    <None Include="Resources\HOME_BUTTON.png" />
+    <None Include="Resources\PREVIOUS_BUTTON.png" />
+    <None Include="Resources\NEXT_BUTTON.png" />
+    <None Include="Resources\VIDEO_VIEWS.png" />
+    <None Include="Resources\VIDEO_POPULAR.png" />
+    <None Include="Resources\VIDEO_RESOLUTION.png" />
+    <None Include="Resources\VIDEO_TIME.png" />
+    <None Include="Resources\TVPLE_LOGO_FULL.png" />
+    <None Include="Resources\VIDEO_IMAGE_DEFAULT.png" />
+    <None Include="Resources\APP_ICON_50x50.png" />
+    <None Include="Resources\APP_ICON.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>move "$(TargetDir)\*.dll" "$(TargetDir)\bin"
+move "$(TargetDir)\*.pdb" "$(TargetDir)\bin"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
