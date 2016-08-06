@@ -20,13 +20,20 @@ namespace TvpleDownloader_v2
 		[STAThread]
 		static void Main( )
 		{
+			if ( !System.IO.File.Exists( System.Reflection.Assembly.GetEntryAssembly( ).Location + ".config" ) )
+			{
+				MessageBox.Show( "설정 값을 불러올 수 없습니다, 프로그램을 다시 설치하십시오.", "티비플 다운로더", MessageBoxButtons.OK, MessageBoxIcon.Error );
+				Application.Exit( );
+				return;
+			}
+
 			System.Diagnostics.Process[ ] process = System.Diagnostics.Process.GetProcessesByName( "Tvple Downloader Update" );
 
 			if ( process.Length > 0 )
 			{
 				foreach ( System.Diagnostics.Process p in process )
 				{
-					MessageBox.Show( "티비플 다운로더 업데이트가 실행중 입니다, 업데이트가 끝난 다음 다시 시도하십시오.", "티비플 다운로더", MessageBoxButtons.OK, MessageBoxIcon.Warning );
+					MessageBox.Show( "티비플 다운로더 업데이트가 실행중 입니다, 업데이트가 끝난 다음 다시 시도하십시오.", "티비플 다운로더", MessageBoxButtons.OK, MessageBoxIcon.Error );
 					Application.Exit( );
 					return;
 				}
