@@ -173,7 +173,7 @@ namespace TvpleDownloader_v2
 						string TVPLE_VIDEO_NAME = ConvertFromHTMLCode( mixedArrayList_5[ 2 ] );
 						string TVPLE_VIDEO_DESC = ConvertFromHTMLCode( mixedArrayList_1[ 6 ] );
 						string TVPLE_VIDEO_IMAGE_URL = mixedArrayList_1[ 2 ];
-						string TVPLE_UPLOADER_NAME = mixedArrayList_3[ 13 ].Trim( ).Replace( "</a", "" );
+						string TVPLE_UPLOADER_NAME = mixedArrayList_3[ 13 ].Trim( ).Replace( "<small class=", "" ).Replace( "</a", "" );
 						string TVPLE_UPLOADER_CHANEL_URL = mixedArrayList_3[ 3 ];
 						string TVPLE_POPULAR = mixedArrayList_4[ 3 ].Replace( "</li", "" ).Trim( );
 						string TVPLE_VIEWS = mixedArrayList_4[ 11 ].Replace( "</li", "" ).Trim( );
@@ -187,8 +187,8 @@ namespace TvpleDownloader_v2
 						// 새로운 썸네일 방식인지 확인
 						if ( IsNewVideoImageURL( TVPLE_VIDEO_IMAGE_URL ) )
 							TVPLE_VIDEO_IMAGE_URL = TVPLE_VIDEO_IMAGE_URL.Replace( "&amp;", "&" );
-						else
-							TVPLE_VIDEO_IMAGE_URL = TVPLE_VIDEO_IMAGE_URL.Replace( ".md-16x9", ".sm-16x9-gif" ); // GIF 이미지 지원
+						//else
+							//TVPLE_VIDEO_IMAGE_URL = TVPLE_VIDEO_IMAGE_URL.Replace( ".md-16x9", ".sm-16x9-gif" ); // GIF 이미지 지원
 
 						try
 						{
