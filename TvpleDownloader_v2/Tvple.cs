@@ -38,13 +38,32 @@ namespace TvpleDownloader_v2
 			return HTMLstring;
 		}
 
+		/*
+		parody
+		ent
+		ani
+		game
+		humor
+		sisa
+		sport
+		fashion
+		tech
+		life
+		jculture
+		other
+		*/
+
 		public bool IsTvpleURL( string tvpleURL )
 		{
 			if ( tvpleURL.StartsWith( "http://tvple.com/" ) && tvpleURL.Length > 17 )
 			{
 				int i = 0;
 
-				if ( int.TryParse( tvpleURL.Substring( 17, tvpleURL.Length - 17 ), out i ) )
+				string[ ] urlObject = tvpleURL.Split( '/' );
+
+				if ( urlObject.Length != 5 ) return false;
+
+				if ( int.TryParse( urlObject[ 4 ], out i ) )
 				{
 					return true;
 				}
@@ -134,7 +153,12 @@ namespace TvpleDownloader_v2
 				MainForm.CANCEL_VIDEO_Click( null, null );
 			}
 		}
-		
+
+		/*
+		 * GetInformation( string tvpleURL )
+		 * 입력받은 티비플 영상 주소로부터 영상의 정보를 서버에서 가져옴.
+		 * 반환 : string[ ]
+		*/
 		public string[ ] GetInformation( string tvpleURL )
 		{
 			try
@@ -188,7 +212,7 @@ namespace TvpleDownloader_v2
 						if ( IsNewVideoImageURL( TVPLE_VIDEO_IMAGE_URL ) )
 							TVPLE_VIDEO_IMAGE_URL = TVPLE_VIDEO_IMAGE_URL.Replace( "&amp;", "&" );
 						//else
-							//TVPLE_VIDEO_IMAGE_URL = TVPLE_VIDEO_IMAGE_URL.Replace( ".md-16x9", ".sm-16x9-gif" ); // GIF 이미지 지원
+						//TVPLE_VIDEO_IMAGE_URL = TVPLE_VIDEO_IMAGE_URL.Replace( ".md-16x9", ".sm-16x9-gif" ); // GIF 이미지 지원
 
 						try
 						{
